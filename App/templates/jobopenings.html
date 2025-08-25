@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+}
+
+.service-box {
+    background: rgba(0, 50, 50, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffcc;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.service-box h1 {
+    color: #00ffe0;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffe0;
+}
+
+.notice {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+</style>
+
+<div class="service-box">
+    <h1>Job Openings</h1>
+    <p class="notice">Currently, there are no job openings available. Please check back later!</p>
+</div>
+{% endblock %}

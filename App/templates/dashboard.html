@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard | DEFENCIA{% endblock %}
+
+{% block content %}
+<style>
+  /* Background */
+  body {
+    background-color: #050505;
+    overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  /* Container */
+  .dashboard-container {
+    margin: 80px auto;
+    padding: 40px;
+    width: 80%;
+    border: 2px solid #00ffcc;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #00ffcc;
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 1;
+    animation: flicker 3s infinite alternate;
+  }
+
+  /* Typing animation */
+  .dashboard-title {
+    color: #00ffff;
+    font-size: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+    text-shadow: 0 0 8px #00ffff;
+  }
+
+  .dashboard-content {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+    animation: fadeIn 5s ease-in;
+  }
+
+  /* Particles (small dots) */
+  .particle {
+    position: fixed;
+    background-color: #00ffcc;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 10s linear infinite;
+    z-index: 0;
+  }
+
+  /* Keyframes */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(-100vh) translateX(20px);
+    }
+  }
+</style>
+
+<!-- Animated particles -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.width = `${Math.random() * 4 + 1}px`;
+      particle.style.height = particle.style.width;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+      particle.style.animationDelay = `${Math.random() * 10}s`;
+      document.body.appendChild(particle);
+    }
+  });
+</script>
+
+<!-- Dashboard -->
+<div class="dashboard-container">
+  <h1 class="dashboard-title">ACCESS GRANTED FOR THIS SITE ACCESS**</h1>
+  <p class="dashboard-content">
+    Boot sequence initialized... ⬤<br>
+    Tracking global threat vectors ⬤⬤⬤<br>
+    Status: <span style="color: lime;">ACTIVE</span>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+}
+
+.service-box {
+    background: rgba(0, 50, 50, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffcc;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.service-box h1 {
+    color: #00ffe0;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffe0;
+}
+
+.service-box h2 {
+    color: #00ffcc;
+    margin-top: 25px;
+}
+
+ul {
+    padding-left: 20px;
+}
+</style>
+
+<div class="service-box">
+    <h1>Penetration Testing</h1>
+    <p>
+        Hackers never rest, and neither do we. Our penetration testing services simulate 
+        real-world cyberattacks to expose vulnerabilities before malicious actors can exploit them.
+    </p>
+
+    <h2>Why Choose Us?</h2>
+    <p>
+        We use a mix of automated tools and manual testing techniques to uncover hidden flaws. 
+        Our ethical hackers provide actionable reports to help you strengthen defenses.
+    </p>
+
+    <h2>Services Offered</h2>
+    <ul>
+        <li><strong>Network Penetration Testing</strong> – Assess firewalls, servers, and network infrastructure.</li>
+        <li><strong>Web Application Security Audits</strong> – Identifying vulnerabilities in your apps.</li>
+        <li><strong>Mobile App Testing</strong> – Security analysis for Android and iOS apps.</li>
+        <li><strong>Red Team Engagements</strong> – Full-scale attack simulations by ethical hackers.</li>
+    </ul>
+
+    <h2>Benefits</h2>
+    <p>
+        Identify risks before attackers do, comply with industry regulations, 
+        and ensure your systems remain resilient against evolving threats.
+    </p>
+</div>
+{% endblock %}

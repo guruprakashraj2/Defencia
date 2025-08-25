@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .text-defencia {
+    color: #00ffcc !important;
+  }
+
+  .glow-border {
+    border: 1px solid #00ffcc !important;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+
+  .btn-defencia {
+    background-color: #00ffcc;
+    color: #000;
+    border: none;
+    font-weight: 600;
+  }
+
+  .btn-defencia:hover {
+    background-color: #00e6b8;
+    color: #000;
+  }
+
+  ul.card-text li::marker {
+    color: #00ffcc;
+  }
+</style>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center text-defencia">About DEFENCIA.IN</h1>
+
+  <!-- Who We Are -->
+  <div class="card bg-dark text-light glow-border mb-4">
+    <div class="card-body">
+      <h3 class="card-title text-defencia">Who We Are</h3>
+      <p class="card-text">
+        <strong>DEFENCIA.IN</strong> is a <span class="text-warning">fresher-first</span> tech and cybersecurity company dedicated to 
+        building opportunities for passionate learners. We believe that true innovation starts with 
+        curiosity, and that <span class="text-warning">“Freshers become legends. Learners become legends.”</span>
+      </p>
+      <p class="card-text">
+        In today’s competitive world, many companies reject fresh talent due to lack of experience — 
+        but at DEFENCIA.IN, we see this as potential waiting to be unlocked. Our mission is to 
+        <span class="text-defencia">empower beginners, nurture skills, and transform them into future experts and leaders</span>.
+      </p>
+      <p class="card-text">
+        We combine <strong>technology, mentorship, and real-world problem solving</strong> to create a platform 
+        where learners grow, contribute, and make an impact in cybersecurity and beyond.
+      </p>
+    </div>
+  </div>
+
+  <!-- Our Vision & Approach -->
+
+
+  <div class="text-center mt-4">
+    <a href="/contact" class="btn btn-defencia">Get in Touch</a>
+  </div>
+</div>
+{% endblock %}

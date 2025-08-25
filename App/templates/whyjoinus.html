@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+}
+
+.service-box {
+    background: rgba(0, 50, 50, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffcc;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.service-box h1 {
+    color: #00ffe0;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffe0;
+}
+
+.reasons {
+    margin-top: 20px;
+    padding-left: 25px;
+}
+
+.reasons li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+</style>
+
+<div class="service-box">
+    <h1>Why Join Us?</h1>
+    <ul class="reasons">
+        <li>Work with cutting-edge cybersecurity tools.</li>
+        <li>Collaborative and innovative team environment.</li>
+        <li>Opportunities for career growth & certifications.</li>
+    </ul>
+</div>
+{% endblock %}

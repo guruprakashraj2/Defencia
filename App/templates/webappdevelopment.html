@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+}
+
+.service-box {
+    background: rgba(0, 50, 50, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffcc;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.service-box h1 {
+    color: #00ffe0;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffe0;
+}
+
+.service-box h2 {
+    color: #00ffcc;
+    margin-top: 25px;
+}
+
+ul {
+    padding-left: 20px;
+}
+</style>
+
+<div class="service-box">
+    <h1>Web Development</h1>
+    <p>
+        We create modern, scalable, and high-performing websites tailored to your business needs. 
+        From sleek corporate websites to powerful e-commerce platforms, our development team 
+        ensures your digital presence stands out.
+    </p>
+
+    <h2>Why Choose Us?</h2>
+    <p>
+        We go beyond templates. Our developers leverage cutting-edge frameworks and custom solutions 
+        to build websites that are fast, responsive, and designed with user experience in mind.
+    </p>
+
+    <h2>Services Offered</h2>
+    <ul>
+        <li><strong>Responsive Web Applications</strong> – Websites that adapt seamlessly across all devices.</li>
+        <li><strong>E-Commerce Platforms</strong> – Secure and scalable online stores with payment integrations.</li>
+        <li><strong>Custom API Integration</strong> – Connecting your website to third-party services.</li>
+        <li><strong>SEO Optimization</strong> – Built-in practices to boost visibility in search engines.</li>
+    </ul>
+
+    <h2>Benefits</h2>
+    <p>
+        Gain a visually stunning website, improved user engagement, and the ability to 
+        convert visitors into loyal customers.
+    </p>
+</div>
+{% endblock %}

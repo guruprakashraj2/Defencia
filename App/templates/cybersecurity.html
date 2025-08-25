@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+}
+
+.service-box {
+    background: rgba(0, 50, 50, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffcc;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.service-box h1 {
+    color: #00ffe0;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffe0;
+}
+
+.service-box h2 {
+    color: #00ffcc;
+    margin-top: 25px;
+}
+
+ul {
+    padding-left: 20px;
+}
+</style>
+
+<div class="service-box">
+    <h1>Cybersecurity Services</h1>
+    <p>
+        In today’s digital world, every business is a potential target for cyberattacks. 
+        Our cybersecurity services are designed to safeguard your organization’s critical assets, 
+        data, and reputation from emerging threats.
+    </p>
+
+    <h2>Why Choose Us?</h2>
+    <p>
+        We combine industry best practices with advanced monitoring tools to deliver 
+        proactive security. Our team of experts ensures that vulnerabilities are detected 
+        and neutralized before they can cause harm.
+    </p>
+
+    <h2>Services Offered</h2>
+    <ul>
+        <li><strong>Threat Detection & Monitoring</strong> – Real-time analysis of suspicious activity across your systems.</li>
+        <li><strong>Firewall & Endpoint Protection</strong> – Next-gen firewalls and antivirus solutions for complete defense.</li>
+        <li><strong>Cloud & Data Security</strong> – Safeguarding sensitive data across cloud platforms and servers.</li>
+        <li><strong>Incident Response</strong> – Rapid reaction and recovery from potential breaches.</li>
+    </ul>
+
+    <h2>Benefits</h2>
+    <p>
+        By partnering with us, you gain 24/7 protection, reduced downtime, and the 
+        confidence that your digital infrastructure is secure from hackers and malware.
+    </p>
+</div>
+{% endblock %}

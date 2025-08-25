@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Leadership | DEFENCIA.IN{% endblock %}
+
+{% block content %}
+<style>
+  .text-defencia {
+    color: #00ffcc !important;
+  }
+
+  .glow-border {
+    border: 1px solid #00ffcc !important;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+
+  .highlight {
+    color: #00ffcc;
+    font-weight: 600;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="card bg-dark text-light glow-border mb-4">
+    <div class="card-body text-center">
+      <img src="" alt="Guruprakashraj - Founder & CEO" class="rounded-circle mb-3" width="130" height="130">
+
+      <h2 class="text-defencia">Our Leadership</h2>
+      <h4 class="mt-3">Guruprakashraj</h4>
+      <p class="text-muted">Founder & CEO, DEFENCIA.IN</p>
+
+      <p class="card-text mt-3">
+        <strong class="highlight">Guruprakashraj</strong> is a self-made tech visionary from Pathamadai, Tirunelveli. With limited resources but unlimited passion,
+        he started <span class="highlight">DEFENCIA.IN</span> to uplift freshers and create opportunities for rural and small-town talent.
+      </p>
+
+      <p class="card-text">
+        His leadership reflects <span class="highlight">resilience</span>, <span class="highlight">clarity</span>, and the courage to build something for others from nothing.
+        He believes in nurturing raw talent and empowering people through discipline and real-world projects.
+      </p>
+
+      <p class="text-muted fst-italic">“<span class="highlight">True leadership starts with lifting others before lifting yourself.”</p></span>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <p class="text-danger">🌱 Built in Pathamadai | Leading for the Nation 🇮🇳</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Vision & Mission | DEFENCIA.IN{% endblock %}
+
+{% block content %}
+<style>
+  .text-defencia {
+    color: #00ffcc !important;
+  }
+
+  .glow-border {
+    border: 1px solid #00ffcc !important;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+
+  .highlight {
+    color: #00ffcc;
+    font-weight: 600;
+  }
+
+  ul.card-text li::marker {
+    color: #00ffcc;
+  }
+</style>
+
+<div class="container py-5">
+
+  <!-- Vision Section -->
+  <div class="card bg-dark text-light glow-border mb-4">
+    <div class="card-body">
+      <h2 class="card-title text-defencia">Our Vision</h2>
+      <p class="card-text">
+        At <strong class="highlight">DEFENCIA.IN</strong>, our vision is to become India’s most inclusive and empowering platform for cybersecurity and development. 
+        We imagine a future where any passionate fresher — regardless of background — can access real opportunities and rise to global standards through the right skills, support, and mindset.
+      </p>
+      <p class="card-text">
+        We are not just building a company; we are building a <span class="highlight">movement</span> — where talent wins over titles.
+      </p>
+    </div>
+  </div>
+
+  <!-- Mission Section -->
+  <div class="card bg-dark text-light glow-border mb-4">
+    <div class="card-body">
+      <h2 class="card-title text-defencia">Our Mission</h2>
+      <p class="card-text">
+        Our mission is to:
+      </p>
+      <ul class="card-text">
+        <li>🚀 Provide real-world training in cybersecurity, web development, and digital defense</li>
+        <li>🧠 Empower freshers with internships, mentorship, and hands-on projects</li>
+        <li>🛠️ Build a community where self-learners and rural talent are respected and supported</li>
+        <li>💼 Connect learners with career opportunities based on skills — not marks or resumes</li>
+      </ul>
+      <p class="card-text">
+        We stand by our quote: <strong class="highlight">“Freshers become legends. Learners become legends.”</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <p class="text-muted">Vision rooted in Pathamadai 🌱 | Mission built for the future of India 🇮🇳</p>
+  </div>
+</div>
+{% endblock %}
