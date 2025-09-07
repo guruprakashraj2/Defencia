@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import RegisterForm, LoginForm
-from .forms import ContactForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
@@ -10,10 +8,13 @@ from django.utils.encoding import force_bytes
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.shortcuts import render, redirect
-from django.contrib import messages
 
-from .forms import ForgetPasswordForm, ResetPasswordForm
+from .forms import (
+    RegisterForm, LoginForm, ContactForm,
+    ForgetPasswordForm, ResetPasswordForm
+)
+
+
 
 def base(request):
     return render(request,"base.html")
@@ -107,19 +108,19 @@ def forget_password(request):
 
             subject = 'Reset Your Password'
             message = render_to_string('reset_password_email.txt', {
-    'user': user,
-    'domain': domain,
-    'uid': uid,
-    'token': token,
-
+                'user': user,
+                'domain': domain,
+                'uid': uid,
+                'token': token,
             })
 
-            send_mail(subject, message, 'your_email@example.com', [email])
+            from_email = 'guruprakashpillai@gmail.com'  # Replace with your Gmail here
+            send_mail(subject, message, from_email, [email], fail_silently=False)
+
             messages.success(request, 'A reset link has been sent to your email.')
             return redirect('App:login')
 
     return render(request, 'forget_password.html', {'form': form})
-
 
 def reset_password(request, uidb64, token):
     try:
@@ -130,18 +131,21 @@ def reset_password(request, uidb64, token):
 
     if user is not None and default_token_generator.check_token(user, token):
         form = ResetPasswordForm(request.POST or None)
-        if request.method == 'POST' and form.is_valid():
-            password = form.cleaned_data['new_password']
-            confirm_password = form.cleaned_data['confirm_password']
+        if request.method == 'POST':
+            if form.is_valid():
+                password = form.cleaned_data['new_password']
+                confirm_password = form.cleaned_data['confirm_password']
 
-            if password != confirm_password:
-                messages.error(request, "Passwords do not match.")
-                return render(request, 'reset_password.html', {'form': form})
+                if password != confirm_password:
+                    messages.error(request, "Passwords do not match.")
+                    return render(request, 'reset_password.html', {'form': form})
 
-            user.set_password(password)
-            user.save()
-            messages.success(request, 'Your password has been reset. Please log in.')
-            return redirect('App:login')
+                user.set_password(password)
+                user.save()
+                messages.success(request, 'Your password has been reset. Please log in.')
+                return redirect('App:login')
+            else:
+                messages.error(request, "Please correct the errors below.")
         return render(request, 'reset_password.html', {'form': form})
     else:
         messages.error(request, 'The password reset link is invalid or has expired.')
