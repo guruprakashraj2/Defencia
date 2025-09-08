@@ -5,13 +5,23 @@ class SecurityHeadersMiddleware:
     def __call__(self, request):
         resp = self.get_response(request)
 
-        # Block browser features you don't need
-        resp["Permissions-Policy"] = (
-            "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
-        )
+        # Permissions-Policy (you already had something like this)
+        resp["Permissions-Policy"] = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
 
-        # Cross-origin isolation helpers (tighten if you use WebAssembly/SharedArrayBuffer)
-        resp["Cross-Origin-Embedder-Policy"] = "require-corp"   # or "credentialless"
-        resp["Cross-Origin-Resource-Policy"] = "same-site"      # or "same-origin"
+        # Cross-origin protections (optional but good)
+        resp["Cross-Origin-Embedder-Policy"] = "require-corp"
+        resp["Cross-Origin-Resource-Policy"] = "same-site"
+
+        # ⭐ Content Security Policy (CSP) — allows your Bootstrap CDN + inline scripts you use
+        resp["Content-Security-Policy"] = (
+            "default-src 'self'; "
+            "script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "
+            "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "
+            "img-src 'self' data:; "
+            "font-src 'self' https://cdn.jsdelivr.net; "
+            "connect-src 'self'; "
+            "base-uri 'self'; "
+            "frame-ancestors 'none'"
+        )
 
         return resp
