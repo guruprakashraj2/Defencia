@@ -6,6 +6,9 @@ Django 5.2.x
 from pathlib import Path
 import os
 import dj_database_url  # pip install dj-database-url
+from dotenv import load_dotenv
+load_dotenv()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +32,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://defencia.in",
     "https://www.defencia.in",
     "https://django-app-ar84.onrender.com",
+    " http://127.0.0.1:8000/"
+    
 ]
 
 # --- Apps ---
@@ -133,3 +138,6 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+    # If you still see 403 after this, add the two lines below too:
+    SESSION_COOKIE_DOMAIN = ".defencia.in"
+    CSRF_COOKIE_DOMAIN = ".defencia.in"
