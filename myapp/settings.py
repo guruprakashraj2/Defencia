@@ -6,8 +6,7 @@ Django 5.2.x
 from pathlib import Path
 import os
 import dj_database_url  # pip install dj-database-url
-from dotenv import load_dotenv
-load_dotenv()
+
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
