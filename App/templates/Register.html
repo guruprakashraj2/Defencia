@@ -12,11 +12,14 @@
     body{min-height:100dvh;background:#111;color:var(--neo);display:flex;align-items:center;justify-content:center;padding:16px}
     .card{width:100%;max-width:460px;background:#1d1f1f;border:0;border-radius:14px;box-shadow:0 0 24px var(--neo)}
     .card h1{font-size:clamp(20px,4.5vw,28px);text-align:center;color:#00ffe0;text-shadow:0 0 10px #00ffe0}
+    .form-label{color:var(--neo);font-weight:600;display:block;margin-bottom:.35rem}
     .form-control{background:#0e0e0e;border:1px solid var(--neo);color:var(--neo)}
+    .form-control::placeholder{color:#7fffe7;opacity:.8}
     .form-control:focus{box-shadow:0 0 8px var(--neo);border-color:#00e6b8}
     .btn-neo{background:var(--neo);color:#000;font-weight:700;border:0}
     .btn-neo:hover{background:#00e6b8;box-shadow:0 0 12px #00ffe0}
     .error-text{color:#ff6b6b;font-size:.9rem}
+    a{color:var(--neo)} a:hover{color:#00e6b8}
   </style>
   {% if messages %}<meta http-equiv="refresh" content="2;url={% url 'App:login' %}">{% endif %}
 </head>
@@ -35,20 +38,25 @@
 
       <div class="mb-3">
         <label class="form-label">Username</label>
-        <input name="username" value="{{ form.username.value|default_if_none:'' }}" class="form-control {% if form.username.errors %}is-invalid{% endif %}">
+        <input name="username" placeholder="Enter username"
+               value="{{ form.username.value|default_if_none:'' }}"
+               class="form-control {% if form.username.errors %}is-invalid{% endif %}">
         {% for e in form.username.errors %}<div class="error-text">{{ e }}</div>{% endfor %}
       </div>
 
       <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" class="form-control {% if form.email.errors %}is-invalid{% endif %}">
+        <input type="email" name="email" placeholder="you@example.com"
+               value="{{ form.email.value|default_if_none:'' }}"
+               class="form-control {% if form.email.errors %}is-invalid{% endif %}">
         {% for e in form.email.errors %}<div class="error-text">{{ e }}</div>{% endfor %}
       </div>
 
       <div class="mb-3">
         <label class="form-label">Password</label>
         <div class="input-group">
-          <input id="id_password" type="password" name="password" class="form-control {% if form.password.errors %}is-invalid{% endif %}">
+          <input id="id_password" type="password" name="password" placeholder="Create password"
+                 class="form-control {% if form.password.errors %}is-invalid{% endif %}">
           <button class="btn btn-outline-light" type="button" id="showPwd"><i class="bi bi-eye"></i></button>
         </div>
         {% for e in form.password.errors %}<div class="error-text">{{ e }}</div>{% endfor %}
@@ -57,7 +65,8 @@
       <div class="mb-3">
         <label class="form-label">Confirm Password</label>
         <div class="input-group">
-          <input id="id_confirm_password" type="password" name="confirm_password" class="form-control {% if form.confirm_password.errors %}is-invalid{% endif %}">
+          <input id="id_confirm_password" type="password" name="confirm_password" placeholder="Repeat password"
+                 class="form-control {% if form.confirm_password.errors %}is-invalid{% endif %}">
           <button class="btn btn-outline-light" type="button" id="showPwd2"><i class="bi bi-eye"></i></button>
         </div>
         {% for e in form.confirm_password.errors %}<div class="error-text">{{ e }}</div>{% endfor %}
