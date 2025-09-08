@@ -8,6 +8,7 @@ from django.utils.encoding import force_bytes
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from .models import Contact
 
 from .forms import (
     RegisterForm, LoginForm, ContactForm,
@@ -79,17 +80,21 @@ def internships(request):
 
 def whyjoinus(request):
     return render(request, "whyjoinus.html")
+
 def contact_view(request):
     if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()  # ✅ stores in DB
-            messages.success(request, "✅ Your message has been sent successfully!")
-            return redirect("App:contact")  # redirect back to contact page
-    else:
-        form = ContactForm()
+        name = request.POST.get("name", "").strip()
+        email = request.POST.get("email", "").strip()
+        message = request.POST.get("message", "").strip()
 
-    return render(request, "contact.html", {"form": form})
+        if name and email and message:
+            Contact.objects.create(name=name, email=email, message=message)
+            messages.success(request, "✅ Your message has been sent successfully!")
+            return redirect("App:contact")      # make sure this URL name exists
+        else:
+            messages.error(request, "Please fill all fields.")
+    return render(request, "contact.html")
+   
 def forget_password(request):
     form = ForgetPasswordForm()
     if request.method == 'POST':

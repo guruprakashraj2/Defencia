@@ -57,18 +57,18 @@ class LoginForm(forms.Form):
             self.user = user  # Save user for use in view
 
         return cleaned_data
-    
+from django import forms
+from .models import Contact
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['name', 'email', 'message']
-
-    # Extra validation if needed
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not email.endswith(".com"):   # Example rule
-            raise forms.ValidationError("Only .com emails are allowed")
-        return email
+        fields = ["name", "email", "message"]
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "message": forms.Textarea(attrs={"class": "form-control", "rows": 5}),
+        }
 class ForgetPasswordForm(forms.Form):
     email = forms.EmailField(label='Email')
 
